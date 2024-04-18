@@ -1,0 +1,13 @@
+{% extends "LinkBlink/_base.html" %}
+{% load tailwind_filters %}
+{% block content %}
+    <div class="sm:w-3/4 w-full">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input class="bg-indigo-500 text-white px-8 py-2.5 mt-3 rounded-lg cursor-pointer hover:bg-indigo-400"
+                   type="submit"
+                   value="Create">
+        </form>
+    </div>
+{% endblock content %}

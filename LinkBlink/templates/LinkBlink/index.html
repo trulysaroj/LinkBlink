@@ -1,0 +1,22 @@
+{% extends "LinkBlink/_base.html" %}
+{% block content %}
+  <div class="sm:w-2/3 mx-auto px-10 pb-10">
+    <h1 class="text-xl mb-2">Links</h1>
+    {% for link in links %}
+      <div class="border rounded-xl px-8 py-4 my-5 hover:bg-gray-50 hover:shadow-md">
+        <div class="flex justify-between items-start pb-3">
+          <p class="text-xl font-semibold text-gray-700">{{ link.name }}</p>
+          <p class="rounded-lg bg-gray-600 text-white px-4 py-2 text-sm">Clicks: {{ link.clicks }}</p>
+        </div>
+        <div class="flex justify-between items-center">
+          <p>
+            <a class="underline text-blue-700 text-[13px]" href="{{ link.url }}">{{ link.url }}</a>
+          </p>
+          <p class="underline underline text-blue-700 text-[13px]">
+            <a target="_blank" href="{% url 'root-link' link.slug %}"> <span>&#129125;</span> open/{{ link.slug }} </a>
+          </p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
